@@ -1,0 +1,46 @@
+Part 1: Answer the following questions:
+1. What git command creates a branch?
+git checkout -b NAMEOFBRANCH 
+
+2. What is the difference between a fast-forward and recursive merge?
+Fast forward merge is used when the timeline of commits are straightforward,
+such as having commits on the current branch and none in the main branch.
+Recursive merge is used when both branches have commits. 
+
+3. What git command changes to another branch?
+git checkout NAMEOFBRANCH
+
+4. What git command deletes a branch?
+git branch -d NAMEOFBRANCH
+
+5. How do merge conflicts happen? 
+Merge conflicts happen when git cannot decide what changes are correct
+between two branches.
+
+Part 2: Make a branch and add and commit onto it and merge it back into master.
+Try to create your own merge conflict by modifying the same file on two 
+separate commits on two separate branches.
+
+mkdir folder
+cd folder
+git init
+touch note.txt
+git add note.txt
+git commit -m "initial commit"
+git checkout -b feature
+touch new.txt
+git add new.txt
+git commit -m "added new.txt"
+git checkout master
+git merge feature
+// successful merge
+echo "hi" > note.txt
+git add note.txt
+git commit -m "hi"
+git checkout feature
+echo "bye" > note.txt
+git add note.txt
+git commit -m "bye"
+git checkout master
+git merge feature
+// merge conflict
