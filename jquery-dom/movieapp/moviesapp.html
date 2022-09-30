@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  
+</head>
+
+<body>
+    <form>
+      <label for="name">Movie Name:</label><br>
+      <input type="text" id="name" name="name" value="name"><br>
+      <label for="rating">Rating:</label><br>
+      <input type="text" id="rating" name="rating" value="5"><br>
+      <input id="submit" type="submit" value="Submit">
+    </form>
+    <ul>
+
+    </ul>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+  $("ul").click( function(e) {
+    console.log(e.target);
+    console.log(e.target.tagName);
+    if (e.target.tagName == "BUTTON") {
+      e.target.parentElement.remove();
+    }
+    
+  });
+  $("#submit").click(function(e) {
+    e.preventDefault();
+    let rating = $("#rating").val();
+    let name = $("#name").val();
+    let li = $("<li>").text(`${name}: ${rating}  `);
+    let removeButton = $("<button>").text(" X ");
+    li.append(removeButton);
+    $("ul").append(li);
+  });
+</script>
+</body>
+
+</html>
