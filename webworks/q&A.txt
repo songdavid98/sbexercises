@@ -52,3 +52,13 @@ Addresses:  2606:4700:3033::6815:420f
           2606:4700:3032::ac43:c6ad
           172.67.198.173
           104.21.66.15
+
+Make a simple web page and serve it using python3 -m http.server. Visit the page in a browser.
+$ python -m http.server
+Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+::ffff:127.0.0.1 - - [05/Oct/2022 12:03:50] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [05/Oct/2022 12:03:50] code 404, message File not found
+::ffff:127.0.0.1 - - [05/Oct/2022 12:03:50] "GET /favicon.ico HTTP/1.1" 404 -
+
+http://localhost:8000/
+
